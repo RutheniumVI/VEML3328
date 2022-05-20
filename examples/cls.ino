@@ -1,8 +1,6 @@
 #include <Wire.h>
 #include <VEML3328.h>
-#include <PCA9557.h>
 
-PCA9557 io;
 VEML3328 cls;
 
 void setup() {
@@ -16,14 +14,6 @@ void setup() {
   }else{
     Serial.println("Board is not responding");
   }
-
-  //Turns on the white LED
-  if(io.ping() == 0){
-    io.setMode(IO_OUTPUT);
-    io.setState(IO3, IO_HIGH);
-  }else{
-    Serial.println("Cannnot connect to IOExpander");
-  }  
   
   delay(1500);//setup delay
 }
